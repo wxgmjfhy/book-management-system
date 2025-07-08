@@ -1,13 +1,11 @@
-package main.java.entity;
-
-import main.java.enums.RecordStatus;
+package main.java.dto;
 
 import java.time.LocalDate;
 
 /**
- * 借阅记录 实体类
+ * 借阅记录 数据传输对象
  */
-public class Record {
+public class RecordDTO {
     /**
      * id
      */
@@ -24,11 +22,6 @@ public class Record {
     private String bookName;
 
     /**
-     * 借阅人 id
-     */
-    private Integer borrowerId;
-
-    /**
      * 借阅日期
      */
     private LocalDate borrowDate;
@@ -38,28 +31,15 @@ public class Record {
      */
     private LocalDate dueDate;
 
-    /**
-     * 实际归还日期
-     */
-    private LocalDate returnDate;
-
-    /**
-     * 状态
-     */
-    private RecordStatus status;
-
-    public Record() {
+    public RecordDTO() {
     }
 
-    public Record(Integer id, Integer bookId, String bookName, Integer borrowerId, LocalDate borrowDate, LocalDate dueDate, LocalDate returnDate, RecordStatus status) {
+    public RecordDTO(Integer id, Integer bookId, String bookName, LocalDate borrowDate, LocalDate dueDate) {
         this.id = id;
         this.bookId = bookId;
         this.bookName = bookName;
-        this.borrowerId = borrowerId;
         this.borrowDate = borrowDate;
         this.dueDate = dueDate;
-        this.returnDate = returnDate;
-        this.status = status;
     }
 
     public Integer getId() {
@@ -86,14 +66,6 @@ public class Record {
         this.bookName = bookName;
     }
 
-    public Integer getBorrowerId() {
-        return borrowerId;
-    }
-
-    public void setBorrowerId(Integer borrowerId) {
-        this.borrowerId = borrowerId;
-    }
-
     public LocalDate getBorrowDate() {
         return borrowDate;
     }
@@ -110,19 +82,8 @@ public class Record {
         this.dueDate = dueDate;
     }
 
-    public LocalDate getReturnDate() {
-        return returnDate;
-    }
-
-    public void setReturnDate(LocalDate returnDate) {
-        this.returnDate = returnDate;
-    }
-
-    public RecordStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(RecordStatus status) {
-        this.status = status;
+    @Override
+    public String toString() {
+        return "ID: " + id + ", 图书 ID: " + bookId + ", 书名: " + bookName + ", 借阅日期: " + borrowDate + ", 应归还日期: " + dueDate;
     }
 }
