@@ -184,9 +184,10 @@ public class Book {
         this.recordId = recordId;
     }
 
-    // TODO
     @Override
     public String toString() {
-        return null;
+        return "ID: " + id + ", 书名: " + name + ", 作者: " + authors + ", 出版社: " + publisher + ", 出版日期: " + publishDate +
+                ", ISBN: " + isbn + ", 价格: " + price + ", 分类: " + category + ", 语言: " + language +
+                ", 状态: " + status + ", 简介: " + description + ", 借阅记录 ID: " + recordId;
     }
 }

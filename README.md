@@ -6,7 +6,6 @@ src/
 │   ├── java/
 │   │   ├── controller/          // 表现层
 │   │   │   ├── BookController.java
-│   │   │   ├── RecordController.java
 │   │   │   └── UserController.java
 │   │   ├── dao/                 // 数据访问层
 │   │   │   ├── BookDao.java
