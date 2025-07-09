@@ -172,7 +172,7 @@ public class BookController {
         book.setName(InputUtil.readString("请输入书名 (可直接回车跳过):"));
 
         // 读取并设置作者
-        book.setAuthors(InputUtil.readString("请输入作者 (可直接回车跳过):"));;
+        book.setAuthors(InputUtil.readString("请输入作者 (可直接回车跳过):"));
 
         // 读取并设置出版社
         book.setPublisher(InputUtil.readString("请输入出版社 (可直接回车跳过):"));

@@ -109,7 +109,6 @@ public class BookDao {
         book.setId(newId);
 
         // 转换 Book 为 CSV 行
-        String bookLine = toCsvLine(book);
         boolean success = FileUtil.appendCsv(BOOKS_CSV, book, this::toCsvLine);
         return success ? newId : -1;
     }

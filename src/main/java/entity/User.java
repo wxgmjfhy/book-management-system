@@ -12,7 +12,7 @@ public class User {
     private Integer id;
 
     /**
-     * 账户名称
+     * 账户名
      */
     private String username;
 
@@ -31,15 +31,21 @@ public class User {
      */
     private UserRole role;
 
+    /**
+     * 邮箱
+     */
+    private String email;
+
     public User() {
     }
 
-    public User(Integer id, String username, String name, String password, UserRole role) {
+    public User(Integer id, String username, String name, String password, UserRole role, String email) {
         this.id = id;
         this.username = username;
         this.name = name;
         this.password = password;
         this.role = role;
+        this.email = email;
     }
 
     public Integer getId() {
@@ -80,6 +86,14 @@ public class User {
 
     public void setRole(UserRole role) {
         this.role = role;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public boolean isStudent() {

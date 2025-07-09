@@ -1,9 +1,7 @@
 package main.java.service;
 
-import main.java.dao.BookDao;
 import main.java.dao.RecordDao;
 import main.java.dto.RecordDTO;
-import main.java.entity.Book;
 import main.java.entity.Record;
 import main.java.entity.User;
 import main.java.enums.RecordStatus;
