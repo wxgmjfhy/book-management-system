@@ -1,0 +1,7 @@
+id,username,name,password,role,email
+1,user1,张三,pass123,STUDENT,user1@example.com
+2,user2,李四,pass456,ADMIN,user2@example.com
+3,user3,王五,pass789,STUDENT,user3@example.com
+4,user4,赵六,passabc,STUDENT,user4@example.com
+5,user5,钱七,passdef,ADMIN,user5@example.com
+6,wxgmjfhy,llt,123456,STUDENT,3281412030@qq.com

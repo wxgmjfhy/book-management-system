@@ -73,30 +73,43 @@ public class BookDao {
         if (params.getId() != null && !params.getId().equals(book.getId())) {
             return false;
         }
+
         // 书名过滤 (模糊匹配)
-        if (params.getName() != null && !book.getName().toLowerCase().contains(params.getName().toLowerCase())) {
+        if (params.getName() != null && !params.getName().isEmpty() &&
+                !book.getName().toLowerCase().contains(params.getName().toLowerCase())) {
             return false;
         }
+
         // 作者过滤 (模糊匹配)
-        if (params.getAuthors() != null && !book.getAuthors().toLowerCase().contains(params.getAuthors().toLowerCase())) {
+        if (params.getAuthors() != null && !params.getAuthors().isEmpty() &&
+                !book.getAuthors().toLowerCase().contains(params.getAuthors().toLowerCase())) {
             return false;
         }
+
         // ISBN 过滤
-        if (params.getIsbn() != null && !params.getIsbn().equals(book.getIsbn())) {
+        if (params.getIsbn() != null && !params.getIsbn().isEmpty() &&
+                !params.getIsbn().equals(book.getIsbn())) {
             return false;
         }
+
         // 分类过滤
-        if (params.getCategory() != null && !params.getCategory().equalsIgnoreCase(book.getCategory().name())) {
+        if (params.getCategory() != null && !params.getCategory().isEmpty() &&
+                !params.getCategory().equalsIgnoreCase(book.getCategory().name())) {
             return false;
         }
+
         // 语言过滤
-        if (params.getLanguage() != null && !params.getLanguage().equalsIgnoreCase(book.getLanguage().name())) {
+        if (params.getLanguage() != null && !params.getLanguage().isEmpty() &&
+                !params.getLanguage().equalsIgnoreCase(book.getLanguage().name())) {
             return false;
         }
+
         // 状态过滤
-        if (params.getStatus() != null && !params.getStatus().equalsIgnoreCase(book.getStatus().name())) {
+        if (params.getStatus() != null && !params.getStatus().isEmpty() &&
+                !params.getStatus().equalsIgnoreCase(book.getStatus().name())) {
             return false;
         }
+
         return true;
     }
 

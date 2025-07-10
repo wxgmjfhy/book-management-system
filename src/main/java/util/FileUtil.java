@@ -63,9 +63,13 @@ public class FileUtil {
         }
 
         try (BufferedWriter bw = Files.newBufferedWriter(Paths.get(path), StandardCharsets.UTF_8)) {
-            for (String line : lines) {
-                bw.write(line);
-                bw.newLine();
+            // 仅在每行之间添加换行符，避免最后一行多一个空行
+            for (int i = 0; i < lines.size(); i++) {
+                bw.write(lines.get(i));
+                // 最后一行不添加换行符
+                if (i != lines.size() - 1) {
+                    bw.newLine();
+                }
             }
             return true;
         } catch (IOException e) {
@@ -85,12 +89,22 @@ public class FileUtil {
         String path = BASE_PATH + fileName;
         String line = toStringFunc.apply(entity);
 
-        try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path, true),  StandardCharsets.UTF_8))) {
+        // 检查文件是否存在且非空，决定是否需要先添加换行符
+        boolean needsNewLine = false;
+        File file = new File(path);
+        if (file.exists() && file.length() > 0) {
+            needsNewLine = true;
+        }
+
+        try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path, true), StandardCharsets.UTF_8))) {
+            // 如果文件已有内容，先添加换行符
+            if (needsNewLine) {
+                bw.newLine();
+            }
             bw.write(line);
-            bw.newLine();
             return true;
         } catch (IOException e) {
-            System.err.println("追加文件失败: " + fileName + "，错误: " + e.getMessage());
+            System.err.println("追加文件失败: " + fileName + ", 错误: " + e.getMessage());
             return false;
         }
     }
